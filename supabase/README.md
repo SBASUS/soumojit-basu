@@ -1,26 +1,51 @@
-# Portfolio database setup (Supabase)
+# Supabase + Next.js setup
 
-The portfolio is currently a static GitHub Pages site. GitHub Pages cannot run a server-side database itself, so this project uses **Supabase (managed PostgreSQL + authentication)** as the recommended database service. A framework migration to **Next.js** is a separate hosting change; Next.js server routes need a host such as Vercel, not GitHub Pages.
+## 1. Create Supabase project
+Create a project at https://supabase.com/dashboard. Open SQL Editor and run `supabase/schema.sql` from this repository. The schema creates the PostgreSQL `projects` table and row-level security policies.
 
-## 1. Create the database
-1. Create a project at https://supabase.com/.
-2. Open **SQL Editor** in the Supabase dashboard.
-3. Run `supabase/schema.sql`.
-4. In Authentication, enable email/password sign-in and create your admin user.
+## 2. Create your owner login
+In Supabase Dashboard → Authentication → Users, add a user with your email and a strong password. Then open SQL Editor and run this statement, replacing the email with your own:
 
-## 2. Secure admin access
-The SQL policies allow everyone to read published projects, but only an authenticated user whose JWT has `app_metadata.role = "admin"` can create, update, or delete rows.
-Set that role through the Supabase dashboard / trusted server-side Admin API. Never put a Supabase service-role key in browser code or commit it to GitHub.
+```sql
+update auth.users
+set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"role":"admin"}'::jsonb
+where email = 'YOUR_EMAIL@example.com';
+```
 
-## 3. Site configuration
-Copy `supabase/config.example.js` to `supabase/config.js`, then enter:
-- Project URL (Supabase Dashboard → Project Settings → API)
-- Publishable/anon key from the same page
+Check that exactly one user was updated. Never grant the admin role from a public form or client-side JavaScript. Sign out and back in after changing the role.
 
-The publishable key is designed for browser use only when Row Level Security is enabled. Do not add the service-role/secret key to this file.
+## 3. Configure environment variables
+Use the project URL and publishable/anon key from Supabase Project Settings → API. For local development create `.env.local` in the repository root (never commit it):
 
-## 4. Hosting and framework
-The existing site deploys to GitHub Pages and is plain HTML/CSS/JavaScript. For a full modern app framework with server routes and protected admin workflows, use **Next.js + Supabase + Vercel**. That requires moving deployment away from GitHub Pages and configuring Vercel environment variables. The schema in this repo is ready for that migration.
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY
+```
 
-## 5. Data model
-`projects`: UUID, title, category, description, tags, icon, sort order, published flag, and timestamps. RLS protects writes. Published rows are public; drafts can be hidden from visitors.
+Do not use a service-role/secret key in the app. The publishable key is only safe for client use because database row-level security is enabled.
+
+## 4. Run locally
+Install Node.js 20.9+ and run:
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+## 5. Deploy to Vercel
+Import https://github.com/SBASUS/soumojit-basu into https://vercel.com/new. Select Next.js if asked. Add both environment variables above to Production, Preview, and Development, then deploy. GitHub Pages cannot run this Next.js server app; Vercel becomes the live host for the database-backed app. The previous static site files remain in the repository but the Next.js app uses the `app/` directory.
+
+## 6. Admin functionality
+- Public homepage reads published projects from Supabase.
+- `/login` provides email/password sign-in.
+- `/admin` is restricted to the authenticated user with `app_metadata.role = admin`.
+- Create, edit, publish/unpublish, and delete operations run through server actions and PostgreSQL RLS.
+- Admin can read unpublished drafts; public visitors cannot.
+
+## Security checklist
+- Use a unique, strong admin password.
+- Never expose the Supabase service-role key or commit `.env.local`.
+- Keep the admin role in trusted `app_metadata`, not user-editable `user_metadata`.
+- Use RLS policies from `schema.sql`.
