@@ -1,32 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Personal website of Soumojit Basu, sharing academic background and interests.">
-<title>Soumojit Basu | Personal Website</title>
+<meta name="description" content="Soumojit Basu — Operations Research, quantitative finance, machine learning, and data-driven problem solving.">
+<meta name="theme-color" content="#0b1020">
+<title>Soumojit Basu — Quantitative Thinking, Practical Building</title>
 <style>
-:root{color-scheme:light dark;--bg:light-dark(#f7f8fa,#101318);--surface:light-dark(#fff,#191e26);--text:light-dark(#202733,#edf1f7);--muted:light-dark(#687385,#aab4c3);--line:light-dark(#e3e7ed,#303744);--accent:light-dark(#2463eb,#8db0ff)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(940px,calc(100% - 40px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:-.04em;font-size:1.08rem}nav{display:flex;flex-wrap:wrap;gap:20px}nav a{font-size:.92rem;color:var(--muted)}nav a:hover{color:var(--accent)}.hero{padding:86px 0 76px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:800}h1{font-size:clamp(2.8rem,8vw,5.2rem);line-height:1.03;letter-spacing:-.065em;margin:18px 0}.hero p{max-width:650px;font-size:1.13rem;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-block;padding:11px 17px;border:1px solid var(--line);border-radius:10px;font-weight:700;font-size:.92rem}.btn.primary{background:var(--accent);border-color:var(--accent);color:white}section{padding:46px 0;border-bottom:1px solid var(--line)}h2{font-size:1.55rem;letter-spacing:-.035em;margin:0 0 18px}section p{color:var(--muted);max-width:720px;margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{border:1px solid var(--line);background:var(--surface);padding:20px;border-radius:14px}.card strong{display:block;margin-bottom:6px}.card span{color:var(--muted);font-size:.94rem}.tags{display:flex;flex-wrap:wrap;gap:9px}.tag{border:1px solid var(--line);border-radius:99px;padding:6px 12px;color:var(--muted);font-size:.9rem}footer{padding:24px 0 36px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:.86rem}@media(max-width:560px){header{align-items:flex-start;flex-direction:column}.hero{padding:58px 0}.wrap{width:calc(100% - 28px)}footer{flex-direction:column}}
+:root{color-scheme:dark;--bg:#0b1020;--surface:#111a2d;--surface2:#16223a;--text:#edf3ff;--muted:#9eacc5;--line:#263550;--accent:#8b9dff;--accent2:#66e3c4;--shadow:0 18px 50px #0003}
+:root[data-theme="light"]{color-scheme:light;--bg:#f5f7fc;--surface:#fff;--surface2:#edf1fb;--text:#17213a;--muted:#5f6b83;--line:#dce3f0;--accent:#4258d6;--accent2:#087f70;--shadow:0 18px 50px #1b2c5010}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:background .25s,color .25s}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.topbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(18px);background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--line)}header{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;letter-spacing:-.05em;font-size:1.15rem}.brand b{color:var(--accent)}nav{display:flex;align-items:center;gap:24px}nav a{font-size:.9rem;color:var(--muted)}nav a:hover,nav a.active{color:var(--accent)}.icon-btn,.menu-btn{border:1px solid var(--line);color:var(--text);background:var(--surface);border-radius:12px;width:42px;height:42px;cursor:pointer}.menu-btn{display:none}.hero{padding:100px 0 78px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px;min-height:580px}.kicker{display:inline-flex;align-items:center;gap:9px;color:var(--accent2);font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 16px var(--accent2)}h1{font-size:clamp(3rem,7vw,5.6rem);line-height:.99;letter-spacing:-.075em;margin:20px 0 24px}h1 em{font-style:normal;color:var(--accent)}.intro{max-width:650px;color:var(--muted);font-size:1.1rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:12px;border:1px solid var(--line);font-weight:750;font-size:.91rem;transition:transform .2s,border-color .2s}.btn:hover{transform:translateY(-2px);border-color:var(--accent)}.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}.hero-card{border:1px solid var(--line);background:linear-gradient(145deg,var(--surface),var(--surface2));border-radius:24px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;width:190px;height:190px;right:-70px;top:-70px;border-radius:50%;background:var(--accent);filter:blur(85px);opacity:.23}.mini-label{font-size:.72rem;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;font-weight:800}.terminal{font: .88rem/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;position:relative}.terminal .green{color:var(--accent2)}.terminal .purple{color:var(--accent)}.statline{border-top:1px solid var(--line);margin-top:20px;padding-top:16px;display:flex;justify-content:space-between;color:var(--muted);font-size:.84rem}.section{padding:74px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.eyebrow{color:var(--accent);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:850}.section h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.06em;margin:7px 0 0}.section-lead{color:var(--muted);max-width:630px;margin:12px 0 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:23px;min-width:0;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-4px);border-color:var(--accent)}.card-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:var(--surface2);font-size:1.25rem;margin-bottom:19px}.card h3{margin:0 0 8px;font-size:1.1rem;letter-spacing:-.025em}.card p{color:var(--muted);font-size:.93rem;margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.chip{font-size:.75rem;color:var(--muted);border:1px solid var(--line);padding:4px 9px;border-radius:99px}.timeline{display:grid;grid-template-columns:1fr 1fr;gap:16px}.edu{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface);display:flex;gap:16px}.edu-mark{flex:0 0 46px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--surface2);color:var(--accent);font-weight:900}.edu h3{margin:0;font-size:1.04rem}.edu .where{color:var(--accent);font-weight:700;font-size:.9rem}.edu p{color:var(--muted);font-size:.88rem;margin:6px 0 0}.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.filter{cursor:pointer;border:1px solid var(--line);border-radius:99px;padding:7px 13px;color:var(--muted);background:transparent;font-size:.84rem}.filter.active,.filter:hover{background:var(--accent);border-color:var(--accent);color:white}.project-card[hidden]{display:none}.project-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.project-top .card-icon{margin:0}.project-type{font-size:.72rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;font-weight:800}.project-link{display:inline-flex;margin-top:17px;color:var(--accent);font-size:.88rem;font-weight:750}.skill-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:30px;align-items:start}.skill-cloud{display:flex;flex-wrap:wrap;gap:10px}.skill{padding:9px 13px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:.88rem}.contact-box{padding:clamp(24px,5vw,46px);border-radius:24px;border:1px solid var(--line);background:linear-gradient(120deg,var(--surface),var(--surface2));display:flex;align-items:center;justify-content:space-between;gap:28px}.contact-box h2{margin:0;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.06em}.contact-box p{color:var(--muted);max-width:560px}.footer{padding:26px 0 38px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:.84rem}.backtop{color:var(--accent)}.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}.reveal.visible{opacity:1;transform:none}.clock{font-variant-numeric:tabular-nums;color:var(--accent2)}@media(max-width:850px){.hero{grid-template-columns:1fr;padding:76px 0 60px;gap:30px;min-height:unset}.hero-card{max-width:580px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skill-layout{grid-template-columns:1fr}.contact-box{align-items:flex-start;flex-direction:column}}@media(max-width:600px){.wrap{width:calc(100% - 28px)}header{height:68px}.menu-btn{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;padding:16px 20px 20px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:14px}nav.open{display:flex}.hero{padding:62px 0 48px}h1{font-size:clamp(2.9rem,14vw,4.5rem)}.section{padding:55px 0}.section-head{align-items:flex-start;flex-direction:column}.grid,.timeline{grid-template-columns:1fr}.footer{flex-direction:column}.hero-card{padding:20px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><a class="brand" href="#home">Soumojit Basu<span style="color:var(--accent)">.</span></a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#education">Education</a><a href="#interests">Interests</a><a href="#contact">Contact</a></nav></header>
-<main>
+<div class="topbar"><div class="wrap"><header>
+<a class="brand" href="#home" aria-label="Soumojit Basu home">soumojit<b>.</b></a>
+<nav id="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+<div style="display:flex;gap:8px"><button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button><button class="menu-btn" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button></div>
+</header></div></div>
+<main class="wrap">
 <section class="hero" id="home">
-<div class="eyebrow">Personal website · Academic journey</div>
-<h1>Hello, I’m<br>Soumojit Basu.</h1>
-<p>Welcome to my personal website—a space to share my academic journey, interests, and the ideas I’m exploring. I’m interested in learning how data, analytical thinking, and technology can help us understand complex problems.</p>
-<div class="actions"><a class="btn primary" href="#about">A little about me ↓</a><a class="btn" href="#contact">Get in touch</a></div>
-</section>
-<section id="about"><h2>About me</h2><p>I enjoy learning new things, exploring challenging questions, and developing practical skills through projects and study. This website is a brief introduction to my background and interests.</p></section>
-<section id="education"><h2>Education</h2><div class="grid"><div class="card"><strong>M.Tech</strong><span>Indian Institute of Technology Kharagpur</span></div><div class="card"><strong>Undergraduate studies</strong><span>Add your degree, institution, and dates here.</span></div></div><p style="font-size:.88rem;margin-top:14px">Update these details with the exact programme names and dates before sharing your website publicly.</p></section>
-<section id="interests"><h2>Interests</h2><p>Areas I’m interested in exploring and learning more about:</p><div class="tags"><span class="tag">Data Analytics</span><span class="tag">Statistics</span><span class="tag">Machine Learning</span><span class="tag">Optimization</span><span class="tag">Research</span></div></section>
-<section id="contact"><h2>Contact</h2><p>Interested in connecting or discussing an opportunity? Add your preferred contact details below.</p><div class="actions"><a class="btn primary" href="mailto:your.email@example.com">Email me</a><a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><p style="font-size:.85rem;margin-top:14px">Remember to replace the sample email address and LinkedIn link with your own details.</p></section>
-</main>
-<footer><span>© <span id="year">2026</span> Soumojit Basu</span><a href="#home">Back to top ↑</a></footer>
+<div>
+<div class="kicker"><span class="dot"></span> Quantitative thinking · Practical building</div>
+<h1>Hi, I’m<br><em>Soumojit Basu.</em></h1>
+<p class="intro">I’m an M.Tech student in Operations Research and Data Analytics at IIT Kharagpur, interested in the intersection of mathematical modelling, machine learning, optimization, and financial markets.</p>
+<div class="actions"><a class="btn primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a><a class="btn" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a></div>
 </div>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<aside class="hero-card" aria-label="Interactive profile summary">
+<div class="mini-label">Current focus / profile</div>
+<div class="terminal" style="margin-top:18px"><div><span class="purple">const</span> focus = [</div><div>&nbsp; <span class="green">"Quantitative Finance"</span>,</div><div>&nbsp; <span class="green">"Machine Learning"</span>,</div><div>&nbsp; <span class="green">"Optimization"</span>,</div><div>&nbsp; <span class="green">"Data &amp; Analytics"</span></div><div>];</div><div style="margin-top:13px"><span class="purple">while</span> (curious) {</div><div>&nbsp; learn(); build(); test();</div><div>}</div></div>
+<div class="statline"><span>Based in India</span><span class="clock" id="liveClock">IST · --:--:--</span></div>
+</aside>
+</section>
+<section class="section reveal" id="about">
+<div class="section-head"><div><div class="eyebrow">01 / About</div><h2>Curiosity, with a quantitative lens.</h2></div></div>
+<p class="section-lead">I enjoy turning open-ended questions into structured problems: defining assumptions, building models, testing ideas against data, and communicating what the results actually say. I’m especially interested in rigorous analysis that connects theory with real-world decisions.</p>
+<div class="grid" style="margin-top:24px">
+<article class="card"><div class="card-icon">∑</div><h3>Mathematical modelling</h3><p>Probability, statistics, optimization, and translating complex systems into tractable models.</p></article>
+<article class="card"><div class="card-icon">⌘</div><h3>Data &amp; machine learning</h3><p>Exploring patterns, building reproducible experiments, and evaluating models with care.</p></article>
+<article class="card"><div class="card-icon">↗</div><h3>Financial technology</h3><p>Derivatives, quantitative research, market data, and systematic strategy evaluation.</p></article>
+</div>
+</section>
+<section class="section reveal" id="education">
+<div class="section-head"><div><div class="eyebrow">02 / Education</div><h2>The academic path.</h2></div></div>
+<div class="timeline">
+<article class="edu"><div class="edu-mark">IIT</div><div><h3>M.Tech — Operations Research and Data Analytics</h3><div class="where">Indian Institute of Technology Kharagpur</div><p>Focus areas include quantitative methods, optimization, analytics, and financial engineering.</p></div></article>
+<article class="edu"><div class="edu-mark">B</div><div><h3>B.Tech — Mechanical Engineering</h3><div class="where">Kalyani Government Engineering College</div><p>Engineering foundation in analytical problem-solving and mathematical reasoning.</p></div></article>
+</div>
+</section>
+<section class="section reveal" id="projects">
+<div class="section-head"><div><div class="eyebrow">03 / Selected work</div><h2>Projects &amp; research interests.</h2><p class="section-lead">A selection of technical themes and project directions. Details can be expanded as projects are published.</p></div></div>
+<div class="filter-row" role="group" aria-label="Filter projects">
+<button class="filter active" data-filter="all">All</button><button class="filter" data-filter="quant">Quant finance</button><button class="filter" data-filter="ml">Machine learning</button><button class="filter" data-filter="data">Data science</button>
+</div>
+<div class="grid" id="projectGrid">
+<article class="card project-card" data-category="quant"><div class="project-top"><div class="card-icon">𝑓(x)</div><span class="project-type">Quant finance</span></div><h3>Options pricing &amp; hedging</h3><p>Explore Black–Scholes pricing, Greeks, delta hedging, volatility estimation, and scenario-based option analysis.</p><div class="chips"><span class="chip">Python</span><span class="chip">Derivatives</span><span class="chip">Risk</span></div></article>
+<article class="card project-card" data-category="quant"><div class="project-top"><div class="card-icon">⌁</div><span class="project-type">Quant finance</span></div><h3>Systematic strategy research</h3><p>A research direction focused on historical market data, backtesting, transaction costs, and out-of-sample evaluation.</p><div class="chips"><span class="chip">Backtesting</span><span class="chip">Statistics</span><span class="chip">Markets</span></div></article>
+<article class="card project-card" data-category="ml"><div class="project-top"><div class="card-icon">◉</div><span class="project-type">Computer vision</span></div><h3>Pneumonia detection</h3><p>A computer-vision project exploring medical-image classification and model evaluation.</p><div class="chips"><span class="chip">Machine learning</span><span class="chip">Images</span><span class="chip">Evaluation</span></div></article>
+<article class="card project-card" data-category="ml"><div class="project-top"><div class="card-icon">✳</div><span class="project-type">Applied AI</span></div><h3>LLMs for portfolio research</h3><p>Investigate how language models can support portfolio analysis while keeping quantitative validation and risk controls central.</p><div class="chips"><span class="chip">LLMs</span><span class="chip">Finance</span><span class="chip">Research</span></div></article>
+<article class="card project-card" data-category="data"><div class="project-top"><div class="card-icon">▤</div><span class="project-type">Analytics</span></div><h3>Statistical modelling</h3><p>Build reproducible workflows for exploratory analysis, inference, model diagnostics, and communicating uncertainty.</p><div class="chips"><span class="chip">Statistics</span><span class="chip">Data</span><span class="chip">R / Python</span></div></article>
+<article class="card project-card" data-category="quant"><div class="project-top"><div class="card-icon">◇</div><span class="project-type">Optimization</span></div><h3>Optimization &amp; decision systems</h3><p>Explore constrained optimization, sensitivity analysis, and model-driven decision-making.</p><div class="chips"><span class="chip">OR</span><span class="chip">Optimization</span><span class="chip">Decision science</span></div></article>
+</div>
+</section>
+<section class="section reveal" id="skills">
+<div class="section-head"><div><div class="eyebrow">04 / Toolkit</div><h2>Tools &amp; topics.</h2></div></div>
+<div class="skill-layout"><p class="section-lead">A working toolkit for analytical projects, quantitative experiments, and clear communication. This list is intentionally editable as skills grow.</p><div class="skill-cloud"><span class="skill">Python</span><span class="skill">C++</span><span class="skill">Excel</span><span class="skill">Statistics</span><span class="skill">Operations Research</span><span class="skill">Optimization</span><span class="skill">Machine Learning</span><span class="skill">Financial Engineering</span><span class="skill">Options &amp; Greeks</span><span class="skill">Backtesting</span><span class="skill">Data Visualization</span><span class="skill">Research Design</span></div></div>
+</section>
+<section class="section reveal" id="contact">
+<div class="contact-box"><div><div class="eyebrow">05 / Contact</div><h2>Have an interesting problem?</h2><p>I’m open to conversations about quantitative research, analytics, machine learning, and internship opportunities. Add your preferred contact links to make it easy to reach you.</p></div><div class="actions" style="margin:0"><a class="btn primary" href="https://github.com/SBASUS" target="_blank" rel="noreferrer">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div>
+</section>
+</main>
+<div class="wrap"><footer class="footer"><span>© <span id="year"></span> Soumojit Basu · Built for the web.</span><a class="backtop" href="#home">Back to top ↑</a></footer></div>
+<script>
+(() => {
+  const root = document.documentElement;
+  const themeButton = document.getElementById('themeToggle');
+  const savedTheme = (() => { try { return localStorage.getItem('soumojit-theme'); } catch { return null; } })();
+  if (savedTheme === 'light') root.dataset.theme = 'light';
+  const syncThemeButton = () => { themeButton.textContent = root.dataset.theme === 'light' ? '☾' : '☼'; themeButton.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'); };
+  syncThemeButton();
+  themeButton.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('soumojit-theme', root.dataset.theme); } catch {}
+    syncThemeButton();
+  });
+  const menuButton = document.getElementById('menuToggle');
+  const nav = document.getElementById('nav');
+  menuButton.addEventListener('click', () => { const open = nav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); menuButton.textContent = open ? '×' : '☰'; });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.textContent = '☰'; }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const clock = document.getElementById('liveClock');
+  const updateClock = () => { clock.textContent = 'IST · ' + new Intl.DateTimeFormat('en-IN', {timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date()); };
+  updateClock(); setInterval(updateClock, 1000);
+  const filters = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('.project-card');
+  filters.forEach(button => button.addEventListener('click', () => {
+    filters.forEach(item => item.classList.toggle('active', item === button));
+    const category = button.dataset.filter;
+    cards.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
+  }));
+  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:.12}) : null;
+  document.querySelectorAll('.reveal').forEach(element => { if (observer) observer.observe(element); else element.classList.add('visible'); });
+  document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => { const target = document.querySelector(link.getAttribute('href')); if (target) { event.preventDefault(); target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); } }));
+})();
+</script>
 </body>
 </html>
