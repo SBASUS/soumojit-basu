@@ -32,6 +32,12 @@ create policy "Anyone can read published projects"
 on public.projects for select to anon, authenticated
 using (published = true);
 
+-- Admins can also read unpublished drafts in the dashboard.
+drop policy if exists "Admins can read all projects" on public.projects;
+create policy "Admins can read all projects"
+on public.projects for select to authenticated
+using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
+
 -- Only signed-in users can create, edit, or delete. Restrict admin access
 -- by setting app_metadata.role = 'admin' for your own Supabase user.
 drop policy if exists "Admins can insert projects" on public.projects;
